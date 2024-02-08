@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="contact.html"class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: ROS, Gazebo, Rviz, SLAM, C++</p>
+					<header>
+						<h2>Autonomous Navigation in known Environmnet</h2>
+					</header>
+
+					<section>
+						<header>
+							<h3>Introduction</h3>
+						</header>
+						<p style="text-align: justify;">As a part of a broader exploration into path planning algorithms, I undertook a project focused on achieving autonomous navigation in a known environment. Leveraging the capabilities of the Gazebo simulator, 
+                            my objective was to enable a TurtleBot 3 robot to autonomously navigate within a mapped environment while avoiding obstacles.</p></section>
+                           
+                           
+                            <center style="font-size: 0;">
+                                <video width="1100" height="720"  autoplay muted>
+                                  <source src="images/Project6/SLAM1.mp4" type="video/mp4">
+                                </video></center>
+            
+                            <section><header>
+                <h3>Key Steps</h3>
+            </header>
+            <p style="text-align: justify;">
+
+                Environment Mapping: I began by employing SLAM (Simultaneous Localization and Mapping) navigation techniques to map the environment. Through the integration of sensor data and robot movements, I created a detailed map of the surroundings.
+                <br><br>
+                Map Storage: Once the mapping process was completed, I stored the generated map for later reference. This step ensured that the robot had access to a precise representation of the environment during the navigation phase.
+                <br><br>
+                Navigation Setup: Using Rviz, a visualization tool commonly used in robotic applications, I set up the navigation parameters for the TurtleBot 3. This involved configuring the robot's trajectory and defining obstacle avoidance strategies based on the stored map data.
+                <br><br>
+                Autonomous Navigation: With the navigation parameters in place, I initiated the autonomous navigation sequence. The TurtleBot 3 utilized the stored map to navigate within the known environment, dynamically adjusting its path to avoid obstacles encountered along the way.
+                </p></section>
+                <section><header>
+                    <h3>Outcome</h3>
+                </header>
+                <p style="text-align: justify;">
+                Through this project, I successfully demonstrated the feasibility of autonomous navigation in known environments using a combination of SLAM and Obstacle avoidance techniques. The project not only showcased the practical application of robotic navigation algorithms but also laid the groundwork for further advancements in autonomous robotics research.</p></section>
+                <ul class="links">
+                    <li><a href="index.html" class="button">Home</a></li>
+                  </ul><br>
+<ul class="icons">
+    <li><a href="https://twitter.com/urviskumar23326" class="icon brands fa-twitter fa-lg"><span class="label">Twitter</span></a></li>
+    <li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" class="icon brands fa-linkedin fa-lg"><span class="label">LinkedIn</span></a></li>
+    <li><a href="https://github.com/Urviskumar" class="icon brands fa-github fa-lg"><span class="label">Github</span></a></li>
+</ul>

@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="contact.html"class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: Pytorch , Matplotlib, NumPy</p>
+					<header>
+						<h2>IMAGE REMOVAL: ADVANCED INPAINTING TECHNIQUE</h2>
+					</header>
+					<section>
+						<header>
+							<h3>Aim of the Project</h3>
+							<!-- <p>This is the subtitle for this particular heading</p> -->
+						</header>
+
+						<p style="text-align: justify;">The objective of this project is to remove squirrels from a set of images through inpainting. Given a list of five image filenames and corresponding masks for squirrels in each image, the project utilizes StableDiffusionInpaintPipeline to inpaint the images, 
+              effectively eliminating the presence of squirrels. </p>
+					</section>
+					<section>
+						<header>
+							<h3>Implementation Overview</h3>
+						</header>
+						<p style="text-align: justify;">In the fascinating realm of computer vision, 
+              the project "Removing Squirrels" delves into the intricate process of
+               erasing squirrels from images using advanced inpainting techniques. This undertaking
+                is not just about visually altering pictures but involves 
+              a sophisticated interplay of algorithms and visual processing that transforms ordinary images into seamless, squirrel-free compositions.
+                            </p>
+                            <p>Inpainting Unveiled:<br>
+                            At the core of this project lies the concept of inpainting, a technique that goes beyond mere image manipulation.
+                             Inpainting involves the reconstruction of missing or damaged portions of an image, leveraging surrounding information 
+                             to seamlessly fill in the gaps. For our purpose, 
+                            the challenge is to artf0ully remove squirrels from images.
+
+                            <header><h3>Technical Details</h3></header>
+                            Inpainting Pipeline Initialization:<br>
+                            The project initializes the inpainting pipeline using StableDiffusionInpaintPipeline.
+                            The pipeline is configured with the pre-trained model from "runwayml/stable-diffusion-inpainting."
+                            The initialized pipeline is set to operate on CPU for inpainting tasks.
+                            
+                            <pre>
+                              <code class="language-python">
+
+                                def initialize_inpaint_pipeline():
+                              
+                              """
+                              Initialize the inpainting pipeline using StableDiffusionInpaintPipeline.
+                              Returns:
+                              inpaint_pipeline (StableDiffusionInpaintPipeline): Initialized inpainting pipeline.
+                              """
+                                      inpaint_pipeline = StableDiffusionInpaintPipeline.from_pretrained("runwayml/stable-diffusion-inpainting",torch_dtype=torch.float32)
+                                      inpaint_pipeline = inpaint_pipeline.to("cpu")
+                                      return inpaint_pipeline
+
+                              </code>
+                            </pre>
+
+                            Squirrel Removal:<br>
+                            The remove_squirrels function takes a list of input image files and corresponding mask files.
+                            For each pair, it loads the input image and mask, both resized to (512, 512) for consistency.
+                            Image inpainting is performed using the initialized inpainting pipeline, removing squirrels from the images.
+                            The output images are saved with filenames appended by "-squirrelsRemoved.jpg."<br><br>
+                            
+                            Unveiling the Output:<br>
+                            The result is a gallery of images where squirrels have seemingly 
+                            vanished into thin air. The modified images seamlessly blend inpainted regions,
+                            leaving few traces of the squirrels due to not well trained model. The filenames of the modified images
+                            follow a clear convention, allowing for easy identification of the transformed compositions.<br><br>
+                            <div class="image-container">
+                              <img src="images/Project3/squirrel-2.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/Project3/squirrel-2-squirrelsRemoved.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/Project3/squirrel-1.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/Project3/squirrel-1-squirrelsRemoved.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/Project3/squirrel-4.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/Project3/squirrel-4-squirrelsRemoved.jpg" alt="Err!" width="200" height="200"/></a>
+                            </div>
+                            <br>
+                            Integration with Previous Phases:<br>
+                            This project acts as the crucial bridge between the image segmentation phase and the subsequent 
+                            synthesis of images using generative models. The continuity
+                              of the project emphasizes a holistic approach, ensuring that each phase contributes to the narrative of image
+                               manipulation and generation.<br><br>
+
+                               In Conclusion:<br>
+                            The "Removing Squirrels" project transcends conventional image editing, showcasing the elegance of inpainting
+                             techniques in the domain of computer vision. It is a testament of algorithms and visual artistry,
+                              offering a glimpse into the complexity and sophistication that underlies seemingly simple image transformations.
+                                 
+<p></p>
+                                <ul class="links">
+                                    <li><a href="index.html" class="button">Home</a></li>
+                                  </ul><br>
+                <ul class="icons">
+					<li><a href="https://twitter.com/urviskumar23326" class="icon brands fa-twitter fa-lg"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" class="icon brands fa-linkedin fa-lg"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/Urviskumar" class="icon brands fa-github fa-lg"><span class="label">Github</span></a></li>
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					
+				</div>
+				
+-->

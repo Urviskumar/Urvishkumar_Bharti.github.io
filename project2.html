@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="contact.html"class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: Tensorflow, OpenCV, Matplotlib, NumPy</p>
+					<header>
+						<h2>Image Segmentation with HRNet</h2>
+					</header>
+					<section>
+						<header>
+							<h3>Aim of the Project</h3>
+							<!-- <p>This is the subtitle for this particular heading</p> -->
+						</header>
+
+						<p style="text-align: justify;">The objective of this project is to segment images of birds 
+                            and squirrels using the HRNet model for object segmentation. Two functions, generate_bird_masks
+                             and generate_squirrel_masks, process selected images, creating masks for birds and squirrels, respectively. 
+                             Additionally, the project includes visualization of the segmentation results, 
+                            showing the original images, and masked images around the detected objects.</p>
+					</section>
+					<section>
+						<header>
+							<h3>Implementation Overview</h3>
+						</header>
+						<p style="text-align: justify;">The project employs the HRNet model, loaded using TensorFlow Hub, to perform object segmentation on images of birds and squirrels.
+                            The model is selected based on its efficiency in capturing detailed object boundaries.
+                            </p>
+                            <center><img src="images/Project2/pr2.png" alt="txt_to_img" width="900" height="500"/></a></center>
+                            <p>Above image provided is a diagram of a typical semantic segmentation network architecture. Semantic segmentation is a type of image analysis that
+                               involves dividing an image into multiple segments or regions, each of which corresponds to a different object or part of the image. 
+                               This is useful for identifying and analyzing objects in an image, and is often used in computer vision and image recognition applications.<br><br>
+
+                              The diagram shows the different layers of the network, including the convolution layer, activations, de-convolution layer, pooling layer, 
+                              and un-pooling layer. These layers help the network learn and identify different features in the image, and ultimately, segment the image
+                               into different regions.<br><br>
+                              
+                              Let's break down the components:<br><br>
+                              
+                              Convolution Layer: This layer applies a set of filters to the input image to create a feature map. 
+                              This helps the network learn local features of the image.<br><br>
+                              
+                              Activations: These are functions that introduce non-linearity into the network, 
+                              allowing it to learn complex patterns. The most common activation function is the Rectified Linear Unit (ReLU).<br><br>
+                              
+                              Pooling Layer: This layer reduces the spatial dimensions of the input, making the network less sensitive 
+                              to the exact location of features in the image.<br><br>
+                              
+                              De-convolution Layer: Also known as transposed convolution, this layer upsamples the input to a higher resolution, 
+                              allowing the network to make more precise predictions about the location of objects in the image.<br><br>
+                              
+                              Un-pooling Layer: This layer reverses the effect of a previous pooling layer, restoring the input to its original size.<br><br>
+                              
+                              The image on the left is an example of an input image, in this case, a bird feeder. 
+                              The semantic segmentation network would take this image as input and output a segmented version of the image,
+                               where each pixel is labeled with the object it belongs to. <br><br>
+                              
+                              Semantic segmentation is extensively used in various fields like automatic driving, human-computer interaction,
+                               augmented reality, and medical imaging. It allows these systems to understand the context of the scene better 
+                               by identifying individual objects and their boundaries.</p>
+					</section>
+
+
+					<section>
+						<header>
+							<h3>Technical Details</h3>
+                            <p>To achieve the goal, the following steps are taken:</p>
+						</header>
+					
+						<ol class="default">
+							<li>Bird Image Segmentation:</li>
+							<li>Squirrel Image Segmentation:</li>
+							<li>Mixed Compositions and Ongoing Optimization</li>
+						</ol>
+					</section>
+						<p style="text-align: center;">HRNET</p>
+            HRNet, or High-Resolution Net, is a convolutional neural network that excels in tasks requiring precise spatial information, 
+            such as image segmentation. Here are some key details about HRNet:</p>
+
+                             <center><img src="images/Project2/hrnet.png" alt="txt_to_img" width="500" height="500"/></a></center>
+
+<br>                            Above image is a flowchart that illustrates High-Resolution Net image segmentation process using a diffusion model. Here’s a step-by-step 
+                            breakdown of the process as depicted in the image: <br><br>
+                           <p style="text-align: justify;">High-Resolution Representations: Unlike traditional methods that recover high-resolution representations from low-resolution representations, HRNet maintains high-resolution representations throughout the model. 
+                            This is crucial for tasks like image segmentation where detailed spatial information is required.
+                                 <p style="text-align: justify;">
+                                  Parallel Multi-Scale Streams: The model starts from a high-resolution subnetwork and gradually adds parallel high-to-low resolution subnetworks.
+                                   These multi-resolution subnetworks provide rich information at multiple scales.
+                                <p style="text-align: justify;">
+                                  Repeated Multi-Resolution Fusions: The network consists of several stages, and the nth stage contains n subnetworks corresponding to n resolutions.
+                                   The authors conduct repeated multi-resolution fusions by exchanging information across parallel multi-resolution subnetworks.
+                                   The terms “image features” and “category queries” are mentioned at the bottom, indicating types of input data. 
+                                 <p style="text-align: justify;">
+                                  In the context of image segmentation, HRNet can effectively capture fine details and complex textures, 
+                                  making it a preferred choice for achieving higher accuracy. This is largely due to its unique architecture 
+                                  that maintains high-resolution representations through the entire network, 
+                                  and its use of parallel multi-resolution subnetworks which provide rich information at multiple scales.                                <p style="text-align: justify;">
+                                By the end of this process, the model generates a high-resolution image that matches the description provided in the input text. This technology is part of a field called Generative AI, which is used to create new content 
+                                from scratch based on the input and training it has received.
+                                <!-- <p style="text-align: justify;">
+                                Note that the actual implementation of this process can be quite complex and involves advanced concepts in machine learning 
+                                and artificial intelligence. This project provides a simplified overview of the process.</p> -->
+                                  <p style="text-align: center;">HRNet Model for Object Segmentation</p></header>
+                                  The project employs the HRNet model, loaded using TensorFlow Hub, to perform object segmentation on images of birds and squirrels.
+                                  The model is selected based on its efficiency in capturing detailed object boundaries.
+                                   <br>
+                                   <pre>
+                                    <code class="language-python">
+
+                                      def load_hrnet_model():
+                                          hub_model = tfhub.load('https://tfhub.dev/google/HRNet/coco-hrnetv2-w48/1')
+                                          return hub_model
+                                    </code>
+                                  </pre>
+                               <p>1. Bird Image Segmentation: <br>
+                                The generate_bird_masks function processes selected bird images, generates masks, and saves
+                                 them along with bounding box visualizations.
+                                The process involves preprocessing images, making predictions using the HRNet model, 
+                                creating masks based on predictions, and saving the resulting masked images.
+                                <pre><code class="language-python">
+                                          Code:
+                                              def generate_bird_masks(bird_folder, selected_birds, mask_folder, hub_model):
+                                                          os.makedirs(mask_folder, exist_ok=True)
+                                                          for image_file in selected_birds:
+                                                              # Read and preprocess the image
+                                                              image_path = os.path.join(bird_folder, image_file)
+                                                              bird_image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+
+                                                              # Make predictions using the model
+                                                              predictions = hub_model.predict([bird_image.astype(np.float32) / 255.])
+
+                                                              # Create a mask image
+                                                              mask = np.squeeze(predictions)[:, :, 17] > 0.1
+                                                              mask_image = np.zeros_like(bird_image)  # Initialize mask with black pixels
+
+                                                              if np.any(mask):
+                                                                  mask_image[mask] = [255, 255, 255]  # Set masked pixels to white
+
+                                                              # Save the mask image as JPEG
+                                                              mask_file = os.path.join(mask_folder, f'mask_{image_file[:-4]}.jpg')
+                                                              mask_image_pil = Image.fromarray(mask_image)
+                                                              mask_image_pil.save(mask_file, format='JPEG')
+
+                                                              # Find contours of the mask
+                                                              contours, _ = cv2.findContours(mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+                                                              # Draw bounding boxes around the contours
+                                                              bbox_image = bird_image.copy()
+                                                              for contour in contours:
+                                                                  x, y, w, h = cv2.boundingRect(contour)
+                                                                  cv2.rectangle(bbox_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                                                              </code>
+                                                            </pre>
+                                                  <p>Result Visualization:<br><p>Present a side-by-side comparison of generated images, highlighting both
+                                                     successful outcomes and instances where the model struggled to separate the object.
+                                                     <section class="feature left">
+                                                      <style>
+                                                        .image-container {
+                                                            float: left;
+                                                        }
+                                                        .clear {
+                                                            clear: both;
+                                                        }
+                                                    </style>
+                                                    <div class="image-container">
+                                                      <img src="images/Project2/birds1.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_birds1.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/birds2.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_birds2.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/birds3.jpg" alt="" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_birds3.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/birds4.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_birds4.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/birds5.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_birds5.jpg" alt="Err!" width="200" height="200"/></a>
+                                                    </div>
+                                                     </section>
+
+                                                     <div class="clear"></div>
+                                                     <br>
+                                                  2. Squirrel Image Segmentation:<br>
+                                                  The generate_squirrel_masks function similarly processes selected squirrel images, generates masks, and saves them with bounding box visualizations.
+                                                  Image preprocessing, model prediction, mask creation, and saving are repeated for squirrel images.
+                                                    <pre>
+                                                      <code class="language-python">
+                                                    Code:
+                                                        def generate_squirrel_masks(squirrel_folder, selected_squirrels, mask_folder, hub_model):
+                                                              os.makedirs(mask_folder, exist_ok=True)
+
+                                                              for image_file in selected_squirrels:
+                                                                  # Read and preprocess the image
+                                                                  image_path = os.path.join(squirrel_folder, image_file)
+                                                                  squirrel_image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+
+                                                                  # Make predictions using the model
+                                                                  predictions = hub_model.predict([squirrel_image.astype(np.float32) / 255.])
+
+                                                                  # Create a mask image
+                                                                  mask = np.squeeze(predictions)[:, :, 18] > 0.1
+                                                                  mask_image = np.zeros_like(squirrel_image)  # Initialize mask with black pixels
+
+                                                                  if np.any(mask):
+                                                                      mask_image[mask] = [255, 255, 255]  # Set masked pixels to white
+
+                                                                  # Save the mask image as JPEG
+                                                                  mask_file = os.path.join(mask_folder, f'mask_{image_file[:-4]}.jpg')
+                                                                  mask_image_pil = Image.fromarray(mask_image)
+                                                                  mask_image_pil.save(mask_file, format='JPEG')
+                                                      </code>
+                                                    </pre>
+                                                    <p>Result Visualization:<br><p>Present a side-by-side comparison of generated images, highlighting both
+                                                      successful outcomes and instances where the model struggled to separate the object.
+                                                    <section class="feature left">
+                                                      <style>
+                                                        .image-container {
+                                                            float: left;
+                                                        }
+                                                        .clear {
+                                                            clear: both;
+                                                        }
+                                                    </style>
+                                                    <div class="image-container">
+                                                      <img src="images/Project2/squirrel-1.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_squirrel-1.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/squirrel-2.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_squirrel-2.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/squirrel-3.jpg" alt="" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_squirrel-3.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/squirrel-4.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_squirrel-4.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/squirrel-5.jpg" alt="Err!" width="200" height="200"/></a>
+                                                      <img src="images/Project2/mask_squirrel-5.jpg" alt="Err!" width="200" height="200"/></a>
+                                                    </div>
+                                                     </section>
+
+                                                     <div class="clear"></div>
+                                                     <br>
+                              </section>
+                                  <p>Numerical Assessment:</p>
+                                <div class="table-wrapper">
+                                  <table class="default">
+                                    <thead>
+                                      <tr>
+                                        <th>Successful Bird Segmentation:</th>
+                                        <th>Successful Squirrel Segmentation:</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>80%</td>
+                                        <td>90%</td>
+                                      </tr>
+These percentages provide quantitative insights into the model's performance in distinguishing between birds and squirrels.
+                                    </table>
+                                  </div>
+                                </section>
+
+  <p></p> 3. Mixed Compositions and Ongoing Optimization:<br>
+  I've encountered captivating scenarios featuring a delightful mix of both birds and squirrels sharing the same frame. 
+  This unique challenge has prompted me to acknowledge and address the intricacies of mixed compositions.<br><br>
+  Understanding the significance of refining segmentation parameters, I am actively engaged 
+  in ongoing optimization efforts. By experimenting with the HRNet model, I aim to elevate segmentation capabilities,
+   ensuring a more precise and nuanced separation of distinct objects within the images.
+  
+<p></p>
+                                <ul class="links">
+                                    <li><a href="index.html" class="button">Home</a></li>
+                                  </ul><br>
+                <ul class="icons">
+					<li><a href="https://twitter.com/urviskumar23326" class="icon brands fa-twitter fa-lg"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" class="icon brands fa-linkedin fa-lg"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/Urviskumar" class="icon brands fa-github fa-lg"><span class="label">Github</span></a></li>
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					
+				</div>
+				
+-->

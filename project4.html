@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="contact.html"class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: Pytorch , Matplotlib, NumPy</p>
+
+					<header>
+						<h2>INPAINTING BIRDS WITH GENERATIVE MODELS</h2>
+					</header>
+					<section>
+						<header>
+							<h3>Aim of the Project</h3>
+							<!-- <p>This is the subtitle for this particular heading</p> -->
+						</header>
+
+						<p style="text-align: justify;">In this captivating assignment, the project "Replacing Birds" introduces
+               a transformative process. This endeavor involves not just the removal of birds but their seamless replacement with new, distinct
+                birds. 
+              Leveraging the power of inpainting using a carefully chosen generative model, this project pushes the boundaries of image manipulation.</p>
+					</section>
+					<section>
+						<header>
+							<h3>Implementation Overview</h3>
+						</header>
+						<p style="text-align: justify;">Inpainting to Replace Birds:<br>
+
+              The project utilizes inpainting techniques to intelligently fill in the regions previously occupied by birds with new bird representations.
+              The inpainting process is guided by a generative model chosen for its ability to produce diverse and realistic bird images.<br>
+              
+              <header><h3>Technical Details</h3></header>
+              1. Stable Diffusion Inpainting Model:<br>
+              The project adopts the Stable Diffusion Inpainting Pipeline, a pre-trained model capable of high-resolution inpainting.
+              This model is loaded and harnessed for its prowess in understanding prompts and generating detailed images.
+             <br> 2. Prompting the Generative Model:<br>
+              The inpainting process is not left to chance. Each image is paired with its mask, and a prompt is provided to guide the generative model.
+              The prompt, "Replace bird, high resolution," directs the model to generate new bird-like elements in the specified regions.
+              <pre>
+                <code class="language-python">
+
+                  def apply_inpainting(image_files, mask_files, inpainting_model):
+                  """
+                  Apply inpainting on each image using the provided mask.
+
+                  Args:
+                      image_files (list): List of image filenames.
+                      mask_files (list): List of mask filenames corresponding to the images.
+                      inpainting_model: Loaded inpainting model for stable diffusion inpainting.
+                  """
+                  for i in range(len(image_files)):
+                      original_image_file = image_files[i]
+                      mask_file = mask_files[i]
+                      initial_image = Image.open(original_image_file).resize((512, 512))
+                      mask_image = Image.open(mask_file).resize((512, 512))
+                      prompt_text = 'Replace bird, high resolution'
+                      inpainted_image = inpainting_model(prompt=prompt_text, image=initial_image, mask_image=mask_image).images[0]
+
+                  # Save the inpainted image with a new filename
+                  result_filename = f"birds_Replaced{i+2}.jpg"
+                  inpainted_image.save(result_filename)
+
+                </code>
+              </pre>
+
+              <p>Inpainting Reimagined:<br>
+                While the earlier project focused on removing squirrels, "Replacing Birds" takes a leap forward by
+                 introducing generative models into the equation. Inpainting, the act of filling in missing
+                  or removed elements in an image. The goal here is not just to hide the absence 
+                  of birds but to reimagine the scene with entirely new, visually engaging bird species. 
+                </p>
+                Integration with Previous Projects:<br>
+                This project builds upon the inpainting techniques used in the removeSquirrels project and introduces the use of generative models for replacing birds.
+                The output of this project forms the final set of images that integrate both segmented and generated components of a previously done projects.
+<br><br>
+
+                <section>
+                  <header>
+                    <h3>Final Output</h3>
+                  </header>
+
+                    <section class="feature left">
+                      <style>
+                        .image-container {
+                            float: left;
+                        }
+                        .clear {
+                            clear: both;
+                        }
+                    </style>
+                    <div class="image-container">
+                      <img src="images/Project4/birds1.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/Birds1_Replaced.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/birds2.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/Birds2_Replaced.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/birds3.jpg" alt="" width="200" height="200"/></a>
+                      <img src="images/Project4/Birds3_Replaced.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/birds4.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/Birds4_Replaced.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/birds5.jpg" alt="Err!" width="200" height="200"/></a>
+                      <img src="images/Project4/Birds5_Replaced.jpg" alt="Err!" width="200" height="200"/></a>
+                    </div>
+                     </section>
+
+                     <div class="clear"></div>
+                     <br>
+
+              <!--add input output label in images-->
+
+<!--
+					<section>
+						<header>
+							<h3>Technical Details</h3>
+                            <p>To achieve the goal, the following steps are taken:</p>
+						</header>
+					
+						<ol class="default">
+							<li>Bird Image Segmentation:</li>
+							<li>Squirrel Image Segmentation:</li>
+							<li>Mixed Compositions and Ongoing Optimization</li>
+						</ol>
+					</section>
+						<p style="text-align: center;">HRNET</p>
+            HRNet, or High-Resolution Net, is a convolutional neural network that excels in tasks requiring precise spatial information, 
+            such as image segmentation. Here are some key details about HRNet:</p>
+
+                             <center><img src="images/Project2/hrnet.png" alt="txt_to_img" width="500" height="500"/></a></center>
+-->
+
+                                                   
+                                                     
+<!--
+  <p></p> 3. Mixed Compositions and Ongoing Optimization:<br>
+  I've encountered captivating scenarios featuring a delightful mix of both birds and squirrels sharing the same frame. 
+  This unique challenge has prompted me to acknowledge and address the intricacies of mixed compositions.<br><br>
+  Understanding the significance of refining segmentation parameters, I am actively engaged 
+  in ongoing optimization efforts. By experimenting with the HRNet model, I aim to elevate segmentation capabilities,
+   ensuring a more precise and nuanced separation of distinct objects within the images.-->
+  
+<p></p>
+                                <ul class="links">
+                                    <li><a href="index.html" class="button">Home</a></li>
+                                  </ul><br>
+                <ul class="icons">
+					<li><a href="https://twitter.com/urviskumar23326" class="icon brands fa-twitter fa-lg"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" class="icon brands fa-linkedin fa-lg"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/Urviskumar" class="icon brands fa-github fa-lg"><span class="label">Github</span></a></li>
+				</ul>
+
+<!-- add in project of future things, what will i do in the projects in which i have mentioned about the previous project-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					
+				</div>
+				
+-->

@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="contact.html"class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: Pytorch, Matplotlib, NumPy</p>
+					<header>
+						<h2>TEXT-TO-IMAGE GENERATION USING DIFFUSION MODEL</h2>
+					</header>
+					<section>
+						<header>
+							<h3>Aim of the Project</h3>
+							<!-- <p>This is the subtitle for this particular heading</p> -->
+						</header>
+
+						<p style="text-align: justify;">The primary objective of this project is to leverage a generative model conditioned 
+                            on input text to produce compelling images that depict squirrels engaging in competition 
+                            with birds for food at a birdfeeder. The goal is to generate five distinct images using 
+                            carefully crafted text queries and customizable parameters.</p>
+					</section>
+                    <center><img src="images/aim1.jpg" alt="txt_to_img" width="500" height="500"/></a></center>
+					<br><section>
+                        <!--
+						<header>
+							<h3>Blockquote</h3>
+						</header>
+						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
+						tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
+					</section>-->
+					<section>
+						<header>
+							<h3>Implementation Overview</h3>
+						</header>
+						<p style="text-align: justify;">To accomplish this task, the project involves loading a pre-trained generative model capable
+                             of transforming textual input into visually realistic images. The model's architecture and
+                            choice of parameters play a crucial role in determining the diversity and quality of the generated images.</p>
+						
+						
+					</section>
+					<section>
+						<header>
+							<h3>Technical Details</h3>
+                            <p>To achieve the goal, the following steps are taken:</p>
+						</header>
+					
+						<ol class="default">
+							<li>Generative Model Selection</li>
+							<li>Diffusers and StableDiffusionPipeline Integration</li>
+							<li>Input Text Composition</li>
+							<li>Image Generation</li>
+						</ol>
+
+					</section>
+
+                    <section>
+						<p style="text-align: justify;">1. Generative Model Selection:<br>
+                             The project utilizes the StableDiffusion model,
+                             known for its stability and efficiency in generating 
+                             realistic images from textual prompts.</p>
+                             <center><img src="images/imp1.jpg" alt="txt_to_img" width="500" height="500"/></a></center>
+                            <br style="text-align: justify;">
+                            Above image is a flowchart that illustrates Google's text-to-image generation process using a diffusion model. Here’s a step-by-step 
+                            breakdown of the process as depicted in the image: <br>
+                           <p style="text-align: justify;">1. Frozen Text Encoder: This is the first step where the input text is encoded. In this example, the input text is “A Golden Retriever
+                                 dog wearing a blue checkered beret and red dotted turtleneck.”
+                                 <p style="text-align: justify;">
+                                 2. Text Embedding: The encoded text is then embedded into a format that the model can understand and process.
+                                <p style="text-align: justify;">
+                                 3. Text-to-Image Diffusion Model: This model takes the text embedding and generates a low-resolution image
+                                 (64x64 pixels in this case).
+                                 <p style="text-align: justify;">
+                                4. Super-Resolution Diffusion Model: This model takes the low-resolution image and enhances it to a higher resolution. This process is repeated twice in the flowchart, first enhancing the image to 256x256 pixels, and then to 1024x1024 pixels.
+                                <p style="text-align: justify;">
+                                By the end of this process, the model generates a high-resolution image that matches the description provided in the input text. This technology is part of a field called Generative AI, which is used to create new content 
+                                from scratch based on the input and training it has received.
+                                <p style="text-align: justify;">
+                                Note that the actual implementation of this process can be quite complex and involves advanced concepts in machine learning 
+                                and artificial intelligence. This project provides a simplified overview of the process.</p>
+                                <p style="text-align: justify;">
+                             2. Diffusers and StableDiffusionPipeline Integration: <br>
+                             The diffusers library is employed to integrate diffusers into the pipeline.
+                              Diffusers play a crucial role in controlling the stability of the generative process, 
+                              ensuring smooth and reliable image generation.
+                              The StableDiffusionPipeline is instantiated from the selected pre-trained model
+                               identifier ("runwayml/stable-diffusion-v1-5"). This pipeline facilitates the transformation 
+                               of text descriptions into visually coherent images.<br>
+                            </p>
+                               <p style="text-align: justify;">Diffusers Integration: <br>
+                               Diffusers are mechanisms that aid in controlling the stability and reliability of the generative process. They contribute to a smoother and more controlled transition from random noise to a coherent image.
+                            <br>
+                            <br>
+                            StableDiffusionPipeline:<br>
+                               The StableDiffusionPipeline encapsulates the functionality of the StableDiffusion model, providing a convenient interface for generating images from textual inputs.
+                            </p>
+                               <p></p>Code:
+                               <br>
+                               <pre>
+                                <code class="language-python">
+                                    def generate_images_from_text():
+                                        model_identifier = "runwayml/stable-diffusion-v1-5"
+                                        pipeline = StableDiffusionPipeline.from_pretrained(model_identifier, torch_dtype=torch.float32)
+                                        pipeline = pipeline.to("cuda")
+                                </code>
+                              </pre>
+                              <p style="text-align: justify;">3. Input Text Composition:<br>
+A text description, "Birds and squirrels engaged in a fighting near a birdfeeder," is formulated to guide the generative process.</p>
+<p></p>Code:
+<br>
+<pre>
+    <code class="language-python">
+        text_description = "Birds and squirrels engaged in a fighting near a birdfeeder."
+        for i in range(5):
+            generated_image = pipeline(text_description).images[0]
+            image_path = f'./generated-images/generated-image-{i+1}.jpeg'
+            image_path = Path(image_path)
+            if not image_path.is_file():
+            Path('./generated-images').mkdir(parents=True, exist_ok=True)
+            plt.imsave(image_path, np.array(generated_image))
+    </code>
+  </pre>
+  <p style="text-align: justify;"> 4. Image Generation:<br>
+The model generates five unique images based on the provided text description, showcasing the dynamic interaction between birds and squirrels near a birdfeeder.
+The generated images are saved in the "./generated-images" directory for further analysis and comparison.
+					</section>
+                    <br><section>
+						<header>
+							<h3>Diffusers and Stability</h3></header><section>
+                            <p style="text-align: justify;">Diffusers in the context of StableDiffusion play a crucial role in maintaining the stability of the generative process, preventing issues like mode collapse and ensuring diverse and high-quality image outcomes.
+                                The choice of StableDiffusion reflects a commitment to utilizing advanced generative models with stable training dynamics.
+                                </p>
+						</section>
+                        <section>
+                            <header>
+                                <h3>Result Visualization</h3></header><section>
+                                <p>Present a side-by-side comparison of generated images, highlighting both successful outcomes and instances where the model struggled to separate bird and squirrel elements.
+                                    <br><br>
+                                    <section class="feature left"><img src="images/Project1/generated-image-1.jpeg" alt="txt_to_img" width="300" height="300"/></a>
+                                    <img src="images/Project1/generated-image-2.jpeg" alt="txt_to_img" width="300" height="300"/></a>
+                                    <img src="images/Project1/generated-image-3.jpeg" alt="txt_to_img" width="300" height="300"/></a>
+                                </section>
+                                    <section class="feature left">
+                                    <img src="images/Project1/generated-image-4.jpeg" alt="txt_to_img" width="300" height="300"/></a>
+                                    <img src="images/Project1/generated-image-5.jpeg" alt="txt_to_img" width="300" height="300"/></a>
+                                </section> 
+                                Discussion on Generated Images:<br>
+                                <li>A dynamic scene featuring squirrels and birds engaging in a playful competition for bird feeder food.</li>
+                            <li> Vibrant colors and detailed feather textures should be emphasized.</li>
+                        <li> Close-up shot capturing the expressions of both squirrels and birds as they interact near the birdfeeder.</li>
+                    <li>A mixed composition illustrating a challenge faced by the model in separating bird and squirrel elements. This highlights ongoing efforts to enhance generative clarity. </li>
+
+                                    <br>Final Image Generation:<br>
+                                    <p style="text-align: justify;">
+                                    The generated images serve as persuasive visual elements to challenge stereotypes and provide an alternative narrative about birdfeeder dynamics. The incorporation of diffusers ensures the stability and 
+                                    reliability of the generative process, contributing to the overall success of the project.</p>
+                                </p> </section>
+                                <ul class="links">
+                                  <li><a href="index.html" class="button">Home</a></li>
+                                </ul><br>
+                                <ul class="icons">
+                                  <li><a href="https://twitter.com/urviskumar23326" class="icon brands fa-twitter fa-lg"><span class="label">Twitter</span></a></li>
+                                  <li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" class="icon brands fa-linkedin fa-lg"><span class="label">LinkedIn</span></a></li>
+                                  <li><a href="https://github.com/Urviskumar" class="icon brands fa-github fa-lg"><span class="label">Github</span></a></li>
+                                </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					
+				</div>
+				
+-->
