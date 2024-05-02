@@ -53,7 +53,7 @@
         <div class="box alt container">
           <p style="text-align: justify;">Skills: ROS, Gazebo, Rviz, Docker, SLAM, C++</p>
 					<header>
-						<h2>TurtleBot 3 Path Planning and SLAM using A*, Dijkstra's Algorithm, and Sensor Fusion</h2>
+						<h2>TurtleBot 3 Path Planning and SLAM using A*, Dijkstra's Algorithm</h2>
 					</header>
 					<section>
 						<header>
@@ -222,16 +222,7 @@ algorithm.</section>
         2. Localization Error: <br>
         In a structured indoor environment, the localization error was less than 5cm,
         indicating that the TurtleBot 3 can accurately determine its position within the map.<br><br>
-        
-        Sensor Fusion:<br>
-        Camera-LiDAR fusion was implemented to improve localization and mapping performance. The benefits of 
-        sensor fusion were evaluated based on the reduction in localization uncertainty and the enhancement of environmental mapping accuracy.<br><br>
-        
-        1. Reduction in Localization Uncertainty: The fusion of camera and LiDAR data improved localization
-         uncertainty by 20% compared to LiDAR-only SLAM, leading to more accurate and reliable robot positioning.<br>
-        2. Environmental Mapping Accuracy: The fusion of 2D LiDAR and camera data enhanced the mapping accuracy by 15%, 
-        resulting in more precise and detailed maps of the environment.<br><br>
-      </p>
+
     </section>
 
     <p>Implementation of A* algorithm</p>
@@ -274,10 +265,8 @@ Path Planning interfaced with Turtle-Bot3 to allow for safe
 and fast navigation from the initial position to end position. It 
 introduced a Mapping and Planning pipeline for ground robot 
 navigation in generated map space.<br>
-This project successfully implemented path planning algorithms, SLAM, and sensor fusion techniques for the TurtleBot 3
+This project successfully implemented path planning algorithms, and SLAM techniques for the TurtleBot 3
  robot platform. The A* algorithm outperformed Dijkstra's in terms of path computation time and nodes expanded. 
- The Visual-LiDAR fusion-based SLAM provided accurate mapping and localization, while camera-LiDAR fusion improved 
- localization uncertainty and mapping accuracy.
 </p>
 
 <ul class="links">
@@ -290,7 +279,16 @@ This project successfully implemented path planning algorithms, SLAM, and sensor
 </ul>
 
 
-
+<!--        
+        Sensor Fusion:<br>
+        Camera-LiDAR fusion was implemented to improve localization and mapping performance. The benefits of 
+        sensor fusion were evaluated based on the reduction in localization uncertainty and the enhancement of environmental mapping accuracy.<br><br>
+        
+        1. Reduction in Localization Uncertainty: The fusion of camera and LiDAR data improved localization
+         uncertainty by 20% compared to LiDAR-only SLAM, leading to more accurate and reliable robot positioning.<br>
+        2. Environmental Mapping Accuracy: The fusion of 2D LiDAR and camera data enhanced the mapping accuracy by 15%, 
+        resulting in more precise and detailed maps of the environment.<br><br>
+      </p>-->
 
 
 
