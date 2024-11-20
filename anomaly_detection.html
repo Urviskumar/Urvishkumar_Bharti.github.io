@@ -79,21 +79,18 @@
                              My task was to create a model that could detect these defects. I trained the model using both the company's data and the MVTec dataset.
                             <br>
               
-              <header><h3>Technical Details</h3></header>
-              Method<br>
+              Method:<br>
              
-Data Preparation: I collected and prepared images of screws and metal nuts for training. Below is the sample of raw dataset used during training.<br>
+<p>Data Preparation: I collected and prepared images of screws and metal nuts for training. Below is the sample of raw dataset used during training.<br>
+</p>
 <div class="image-container">
     <img src="images/anomaly_detection/11.png" alt="Err!" width="1000" height="350"/></a>
   </div>
   <div class="clear"></div>
-  <br>
-
-
              <br>  Background: <br>
             Anomaly detection is a critical task in various industries to ensure the integrity and quality of products. It involves identifying patterns in data that do not conform to expected behavior. In this project, deep learning models, specifically autoencoders and ResNet, were employed for anomaly detection. Autoencoders are unsupervised learning models that aim to learn a compressed representation of input data and can highlight deviations when reconstructing faulty data. ResNet, a powerful convolutional neural network, is known for its effectiveness in feature extraction from images.
            
-           
+           <br>
             <p>Model Structure:<br>
                 this project aimed to leverage the strengths of both models by integrating ResNet's feature extraction capabilities with an autoencoder for anomaly detection. The goal was to create a robust system that can accurately detect defects in industrial components by combining feature-rich data representation and efficient reconstruction-based anomaly detection.
 The ResNet model was used to extract high-level features from input images. The extracted features serve as the input to the autoencoder, providing a rich representation for subsequent anomaly detection.
@@ -103,6 +100,7 @@ The ResNet model was used to extract high-level features from input images. The 
                     The first approach involved using an autoencoder model. The autoencoder consisted of an encoder and a decoder. The encoder compressed the input image into a lower-dimensional representation, and the decoder reconstructed the image from this representation. By comparing the original and reconstructed images, anomalies were detected based on reconstruction errors. The model's performance was evaluated using the AUC-ROC score. Although the autoencoder achieved a score of 0.33, indicating room for improvement, it provided valuable insights for further optimization.
                     </p>
                     <p> Below Model Architecture is taken from the original research paper "Towards Total Recall in Industrial Anomaly Detection" during my reserach review duration in the internship.</p>
+                    <p>Python Code</p>
                     <pre>
                         <code class="language-python">
         
@@ -144,6 +142,7 @@ The ResNet model was used to extract high-level features from input images. The 
 
 <p>2. ResNet Model: <br> Recognizing the need for better performance, a ResNet-based model was implemented. ResNet's powerful feature extraction capabilities were leveraged to improve anomaly detection accuracy. This model was pre-trained on ImageNet, allowing for efficient feature extraction.
 </p>
+              <p>Python Code</p>
               <pre>
                 <code class="language-python">
 
@@ -173,7 +172,7 @@ The ResNet model was used to extract high-level features from input images. The 
 
                 </code>
               </pre>
-              <p>Feature Extraction</p>
+              <p>Feature Extraction:</p>
               <div class="image-container">
                 <img src="images/anomaly_detection/18.png" alt="Err!"width="1000" height="350"/></a>
               </div>
@@ -188,40 +187,39 @@ The ResNet model was used to extract high-level features from input images. The 
                     <h3>Final Output</h3>
                   </header>
 
-                  <p>Graph Analysis</p>
-                   The graph shows the distribution of reconstruction errors obtained from the trained model. The x-axis represents the reconstruction error values, and the y-axis represents the frequency of these errors.
+                  <p>Graph Analysis:<br>The graph shows the distribution of reconstruction errors obtained from the trained model. The x-axis represents the reconstruction error values, and the y-axis represents the frequency of these errors.
 
 <br>Histogram Bars: Each bar in the histogram represents the count of data samples that have a specific range of reconstruction error values.
 
 <br>Red Vertical Line: The vertical red line indicates the threshold value calculated as the mean reconstruction error plus three times the standard deviation. This threshold is used to distinguish between normal and anomalous samples.
-<br>
+</p>
 <pr>For Training Images:</pr><br>
 <div class="image-container">
-    <img src="images/anomaly_detection/16.png" alt="Err!" width="800" height="800"/></a>
+    <img src="images/anomaly_detection/16.png" alt="Err!" width="500" height="370"/></a><br>
   </div>
   <div class="clear"></div>
 <pr>For Testing Images:</pr><br>
 <div class="image-container">
-    <img src="images/anomaly_detection/17.png" alt="Err!" width="800" height="800"/></a>
+    <img src="images/anomaly_detection/17.png" alt="Err!" width="500" height="370"/></a><br>
   </div>
   <div class="clear"></div>
                   <p>Training and Evaluation: <br>The combined model was trained using the same methodology as the standalone models. The loss function used was Mean Squared Error (MSE), and the model's performance was evaluated based on the reconstruction error and AUC-ROC scores.
                     The Combined model achieved an AUC-ROC score of 0.99, showcasing a significant improvement over the only using autoencoder model and resnet model seprately for entire application.
                     </p>
-                    <p>Autoencoder Based AOC Score:</p>
+                    <p>Autoencoder Based AOC Score:</p><br>
                     <div class="image-container">
-                        <img src="images/anomaly_detection/12.png" alt="Err!"width="800" height="800"/></a>
+                        <img src="images/anomaly_detection/12.png" alt="Err!"width="500" height="370"/></a><br>
                       </div>
 
-                      <p>Resnet Based AOC Score:</p>
+                      <p>Resnet Based AOC Score:</p><br>
                       <div class="image-container">
-                          <img src="images/anomaly_detection/13.png" alt="Err!"width="800" height="800"/></a>
+                          <img src="images/anomaly_detection/13.png" alt="Err!"width="500" height="370"/></a><br>
                         </div>
 
                           <p>Autoencoder + Resnet Combined Based AOC Score:</p>
                           <div class="image-container">
-                              <img src="images/anomaly_detection/14.png" alt="Err!" width="800" height="800"/></a><br>
-                              <img src="images/anomaly_detection/15.png" alt="Err!"width="800" height="800"/></a>
+                              <img src="images/anomaly_detection/14.png" alt="Err!" width="500" height="370"/></a><br>
+                              <img src="images/anomaly_detection/15.png" alt="Err!"width="500" height="370"/></a>
                             </div>
 
                     <section class="feature left">
