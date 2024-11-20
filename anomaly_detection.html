@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the smooth scrolling script -->
+</head>
+<body class="is-preload">
+
+    <!-- Include the navigation section -->
+    <style>
+        /* Add some style to the nav element */
+        
+        nav {
+          background-color: transparent; /* Change the background color to a light gray */
+          border: 1px solid; /* Add a thin border around the nav element */
+          margin: 0; /* Remove any margin around the nav element */
+          padding: 10px; /* Add some padding inside the nav element */
+        }
+      
+        /* Add some style to the ul element */
+        ul {
+          list-style-type: none; /* Remove the bullet points from the list */
+          margin: 0; /* Remove any margin around the list */
+          padding: 0; /* Remove any padding around the list */
+          display: flex; /* Make the list items display horizontally */
+          justify-content: space-around; /* Distribute the list items evenly */
+        }
+      
+        /* Add some style to the a elements */
+        a {
+          text-decoration: none; /* Remove the underline from the links */
+          color: inherit; /* Change the link color to a dark gray */
+          font-family: inherit, sans-serif; /* Change the font family to match the website */
+          font-size: 24px; /* Change the font size to match the website */
+        }
+      
+      </style>
+    <!-- Navigation -->
+    <nav>
+        <ul class="links">
+          <li><a href="index.html" class="button">Home</a></li>
+          <li><a href="about.html" class="button">About</a></li>
+          <li><a href="https://drive.google.com/file/d/1zedOrSw1yjuaD-fRH8E0ojYTnuCiH38W/view?usp=sharing" target="_blank" class="button">Resume</a></li>
+        </ul>
+      </nav>
+
+    <!-- Include the header section -->
+
+    <!-- Main content specific to project1.html -->
+    <div id="main">
+        <div class="box alt container">
+          <p style="text-align: justify;">Skills: Pytorch , Matplotlib, NumPy</p>
+
+					<header>
+						<h2>Deep Industrial Anomaly Detection</h2>
+					</header>
+                    <div class="image-container">
+                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="200" height="200"/></a>
+                      </div>
+                      <div class="clear"></div>
+                      <br>
+					<section>
+						<header>
+							<h3>Aim of the Project</h3>
+							<!-- <p>This is the subtitle for this particular heading</p> -->
+						</header>
+
+						<p style="text-align: justify;">During my internship at XYZ Chemical Company in Surat, India, I worked on a project focused on finding defects in industrial parts like screws and metal nuts using deep learning techniques. 
+                            The company needed a reliable system to spot these defects to ensure the quality of their products.</p>
+					</section>
+					<section>
+						<header>
+							<h3>Implementation Overview</h3>
+						</header>
+						<p style="text-align: justify;">Project Objective:<br>
+
+                             My task was to create a model that could detect these defects. I trained the model using both the company's data and the MVTec dataset.
+                            <br>
+              
+              <header><h3>Technical Details</h3></header>
+              Method<br>
+             
+Data Preparation: I collected and prepared images of screws and metal nuts for training. Below is the sample of raw dataset used during training.<br>
+<div class="image-container">
+    <img src="images/anomaly_detection/11.jpg" alt="Err!" width="200" height="200"/></a>
+  </div>
+  <div class="clear"></div>
+  <br>
+
+
+             <br>  Background: <br>
+            Anomaly detection is a critical task in various industries to ensure the integrity and quality of products. It involves identifying patterns in data that do not conform to expected behavior. In this project, deep learning models, specifically autoencoders and ResNet, were employed for anomaly detection. Autoencoders are unsupervised learning models that aim to learn a compressed representation of input data and can highlight deviations when reconstructing faulty data. ResNet, a powerful convolutional neural network, is known for its effectiveness in feature extraction from images.
+           
+           
+            <p>Model Structure:<br>
+                this project aimed to leverage the strengths of both models by integrating ResNet's feature extraction capabilities with an autoencoder for anomaly detection. The goal was to create a robust system that can accurately detect defects in industrial components by combining feature-rich data representation and efficient reconstruction-based anomaly detection.
+The ResNet model was used to extract high-level features from input images. The extracted features serve as the input to the autoencoder, providing a rich representation for subsequent anomaly detection.
+                </p>
+                
+                <p>      1. Autoencoder Model: <br>
+                    The first approach involved using an autoencoder model. The autoencoder consisted of an encoder and a decoder. The encoder compressed the input image into a lower-dimensional representation, and the decoder reconstructed the image from this representation. By comparing the original and reconstructed images, anomalies were detected based on reconstruction errors. The model's performance was evaluated using the AUC-ROC score. Although the autoencoder achieved a score of 0.33, indicating room for improvement, it provided valuable insights for further optimization.
+                    </p>
+                    <p> Below Model Architecture is taken from the original research paper "Towards Total Recall in Industrial Anomaly Detection" during my reserach review duration in the internship.</p>
+                    <pre>
+                        <code class="language-python">
+        
+                            import torch.nn as nn
+
+                            class FeatCAE(nn.Module):
+                                def __init__(self, in_channels=1000, latent_dim=50, is_bn=True):
+                                    super(FeatCAE, self).__init__()
+                                    layers = []
+                                    layers += [nn.Conv2d(in_channels, (in_channels + 2 * latent_dim) // 2, kernel_size=1, stride=1, padding=0)]
+                                    if is_bn:
+                                        layers += [nn.BatchNorm2d(num_features=(in_channels + 2 * latent_dim) // 2)]
+                                    layers += [nn.ReLU()]
+                                    layers += [nn.Conv2d((in_channels + 2 * latent_dim) // 2, 2 * latent_dim, kernel_size=1, stride=1, padding=0)]
+                                    if is_bn:
+                                        layers += [nn.BatchNorm2d(num_features=2 * latent_dim)]
+                                    layers += [nn.ReLU()]
+                                    layers += [nn.Conv2d(2 * latent_dim, latent_dim, kernel_size=1, stride=1, padding=0)]
+                                    self.encoder = nn.Sequential(*layers)
+                                    layers = []
+                                    layers += [nn.Conv2d(latent_dim, 2 * latent_dim, kernel_size=1, stride=1, padding=0)]
+                                    if is_bn:
+                                        layers += [nn.BatchNorm2d(num_features=2 * latent_dim)]
+                                    layers += [nn.ReLU()]
+                                    layers += [nn.Conv2d(2 * latent_dim, (in_channels + 2 * latent_dim) // 2, kernel_size=1, stride=1, padding=0)]
+                                    if is_bn:
+                                        layers += [nn.BatchNorm2d(num_features=(in_channels + 2 * latent_dim) // 2)]
+                                    layers += [nn.ReLU()]
+                                    layers += [nn.Conv2d((in_channels + 2 * latent_dim) // 2, in_channels, kernel_size=1, stride=1, padding=0)]
+                                    self.decoder = nn.Sequential(*layers)
+                                def forward(self, x):
+                                    x = self.encoder(x)
+                                    x = self.decoder(x)
+                                    return x                            
+                        </code>
+                      </pre>
+
+             
+
+<p>2. ResNet Model: <br> Recognizing the need for better performance, a ResNet-based model was implemented. ResNet's powerful feature extraction capabilities were leveraged to improve anomaly detection accuracy. This model was pre-trained on ImageNet, allowing for efficient feature extraction.
+</p>
+              <pre>
+                <code class="language-python">
+
+                    class resnet_feature_extractor(torch.nn.Module):
+                    def __init__(self):
+                        super(resnet_feature_extractor, self).__init__()
+                        self.model = resnet50(weights=ResNet50_Weights.DEFAULT)
+                        self.model.eval()
+                        for param in self.model.parameters():
+                            param.requires_grad = False
+                        # Hook to extract feature maps
+                        def hook(module, input, output):
+                            self.features.append(output)
+                        self.model.layer2[-1].register_forward_hook(hook)
+                        self.model.layer3[-1].register_forward_hook(hook)
+                    def forward(self, input):
+                        self.features = []
+                        with torch.no_grad():
+                            _ = self.model(input)
+                        self.avg = torch.nn.AvgPool2d(3, stride=1)
+                        fmap_size = self.features[0].shape[-2]
+                        self.resize = torch.nn.AdaptiveAvgPool2d(fmap_size)
+                        resized_maps = [self.resize(self.avg(fmap)) for fmap in self.features]
+                        patch = torch.cat(resized_maps, 1)
+                        return patch
+                
+
+                </code>
+              </pre>
+              <p>Feature Extraction</p>
+              <div class="image-container">
+                <img src="images/anomaly_detection/18.jpg" alt="Err!" width="200" height="200"/></a>
+              </div>
+              <div class="clear"></div>
+              <br>
+
+            <p>Combined Model with Autoencoder: <br>The feature maps extracted by ResNet are fed into an autoencoder for anomaly detection. The autoencoder attempts to reconstruct the feature maps, and anomalies are identified based on reconstruction error.
+            </p>
+
+                <section>
+                  <header>
+                    <h3>Final Output</h3>
+                  </header>
+
+                  <p>Training and Evaluation: <br>The combined model was trained using the same methodology as the standalone models. The loss function used was Mean Squared Error (MSE), and the model's performance was evaluated based on the reconstruction error and AUC-ROC scores.
+                    The Combined model achieved an AUC-ROC score of 0.99, showcasing a significant improvement over the only using autoencoder model and resnet model seprately for entire application.
+                    </p>
+                    <p>Autoencoder Based AOC Score:</p>
+                    <div class="image-container">
+                        <img src="images/anomaly_detection/12.jpg" alt="Err!" width="200" height="200"/></a>
+                      </div>
+
+                      <p>Resnet Based AOC Score:</p>
+                      <div class="image-container">
+                          <img src="images/anomaly_detection/13.jpg" alt="Err!" width="200" height="200"/></a>
+                        </div>
+
+                          <p>Autoencoder + Resnet Combined Based AOC Score:</p>
+                          <div class="image-container">
+                              <img src="images/anomaly_detection/14.jpg" alt="Err!" width="200" height="200"/></a>
+                              <img src="images/anomaly_detection/15.jpg" alt="Err!" width="200" height="200"/></a>
+                            </div>
+
+                    <section class="feature left">
+                      <style>
+                        .image-container {
+                            float: left;
+                        }
+                        .clear {
+                            clear: both;
+                        }
+                    </style>
+                    <div class="image-container">
+                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/8.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/9.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="200" height="200"/></a>
+                      </div>
+                      <br>
+                     </section>
+                     <div class="clear"></div>
+                     <br>
+
+              <!--add input output label in images-->
+
+<!--
+					<section>
+						<header>
+							<h3>Technical Details</h3>
+                            <p>To achieve the goal, the following steps are taken:</p>
+						</header>
+					
+						<ol class="default">
+							<li>Bird Image Segmentation:</li>
+							<li>Squirrel Image Segmentation:</li>
+							<li>Mixed Compositions and Ongoing Optimization</li>
+						</ol>
+					</section>
+						<p style="text-align: center;">HRNET</p>
+            HRNet, or High-Resolution Net, is a convolutional neural network that excels in tasks requiring precise spatial information, 
+            such as image segmentation. Here are some key details about HRNet:</p>
+
+                             <center><img src="images/Project2/hrnet.png" alt="txt_to_img" width="500" height="500"/></a></center>
+-->
+
+                                                   
+                                                     
+<!--
+  <p></p> 3. Mixed Compositions and Ongoing Optimization:<br>
+  I've encountered captivating scenarios featuring a delightful mix of both birds and squirrels sharing the same frame. 
+  This unique challenge has prompted me to acknowledge and address the intricacies of mixed compositions.<br><br>
+  Understanding the significance of refining segmentation parameters, I am actively engaged 
+  in ongoing optimization efforts. By experimenting with the HRNet model, I aim to elevate segmentation capabilities,
+   ensuring a more precise and nuanced separation of distinct objects within the images.-->
+  
+<p></p>
+                                <ul class="links">
+                                    <li><a href="index.html" class="button">Home</a></li>
+                                  </ul><br>
+<ul class="links">
+    <li><a href="https://twitter.com/urviskumar23326" >Twitter</a></li>
+    <li><a href="https://www.linkedin.com/in/urvishkumar-bharti-092b5b18b/" >LinkedIn</a></li>
+    <li><a href="https://github.com/Urviskumar" >Github</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+					<section>
+						<header>
+							<h3>Table</h3>
+						</header>
+						<div class="table-wrapper">
+							<table class="default">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>45815</td>
+										<td>Something</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>24524</td>
+										<td>Nothing</td>
+										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
+										<td>19.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+					
+				</div>
+				
+-->
