@@ -57,7 +57,7 @@
 						<h2>Deep Industrial Anomaly Detection</h2>
 					</header>
                     <div class="image-container">
-                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="500" height="200"/></a>
                       </div>
                       <div class="clear"></div>
                       <br>
@@ -188,6 +188,23 @@ The ResNet model was used to extract high-level features from input images. The 
                     <h3>Final Output</h3>
                   </header>
 
+                  <p>Graph Analysis</p>
+                   The graph shows the distribution of reconstruction errors obtained from the trained model. The x-axis represents the reconstruction error values, and the y-axis represents the frequency of these errors.
+
+<br>Histogram Bars: Each bar in the histogram represents the count of data samples that have a specific range of reconstruction error values.
+
+<br>Red Vertical Line: The vertical red line indicates the threshold value calculated as the mean reconstruction error plus three times the standard deviation. This threshold is used to distinguish between normal and anomalous samples.
+<br>
+<pr>For Training Images</pr>
+<div class="image-container">
+    <img src="images/anomaly_detection/16.jpg" alt="Err!" width="200" height="200"/></a>
+  </div>
+  <div class="clear"></div>
+<pr>For Testing Images</pr>
+<div class="image-container">
+    <img src="images/anomaly_detection/17.jpg" alt="Err!" width="200" height="200"/></a>
+  </div>
+  <div class="clear"></div>
                   <p>Training and Evaluation: <br>The combined model was trained using the same methodology as the standalone models. The loss function used was Mean Squared Error (MSE), and the model's performance was evaluated based on the reconstruction error and AUC-ROC scores.
                     The Combined model achieved an AUC-ROC score of 0.99, showcasing a significant improvement over the only using autoencoder model and resnet model seprately for entire application.
                     </p>
@@ -217,11 +234,11 @@ The ResNet model was used to extract high-level features from input images. The 
                         }
                     </style>
                     <div class="image-container">
-                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="200" height="200"/></a>
-                        <img src="images/anomaly_detection/8.jpg" alt="Err!" width="200" height="200"/></a>
-                        <img src="images/anomaly_detection/9.jpg" alt="Err!" width="200" height="200"/></a>
-                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="200" height="200"/></a>
-                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="200" height="200"/></a>
+                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="500" height="200"/></a>
+                        <img src="images/anomaly_detection/8.jpg" alt="Err!" width="500" height="200"/></a>
+                        <img src="images/anomaly_detection/9.jpg" alt="Err!" width="500" height="200"/></a>
+                        <img src="images/anomaly_detection/10.jpg" alt="Err!" width="500" height="200"/></a>
+                        <img src="images/anomaly_detection/7.jpg" alt="Err!" width="500" height="200"/></a>
                       </div>
                       <br>
                      </section>
